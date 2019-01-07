@@ -1,0 +1,54 @@
+﻿@model Entities.Flight
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Flight</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AircraftType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AircraftType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FromLocation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FromLocation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ToLocation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ToLocation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Version)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Version)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.FlightId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

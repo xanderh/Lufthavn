@@ -1,0 +1,11 @@
+﻿@model IEnumerable<string>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<h2>Afgangslufthavne</h2>
+
+@foreach(var origin in Model)
+{
+    <p>@origin</p>
+}

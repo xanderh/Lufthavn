@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Entities.Flight>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<div class="main-content">
+
+    <form asp-action="Index">
+        <label class="control-label"> Afgangslufthavn</label>
+        <input type="text" name="fromLocation" class="form-control" />
+        <label class="control-label"> ankomstlufthavn</label>
+        <input type="text" name="toLocation" class="form-control" />
+        <input type="submit" />
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AircraftType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FromLocation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ToLocation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DepartureTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArrivalTime)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AircraftType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FromLocation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ToLocation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartureTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrivalTime)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.FlightId">Rediger flyafgang</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="sidebar">
+    @await Html.PartialAsync("_Origins", Model.Select(item => item.FromLocation).Distinct())
+    @await Html.PartialAsync("_Destinations", Model.Select(item => item.ToLocation).Distinct())
+</div>

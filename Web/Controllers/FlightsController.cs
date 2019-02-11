@@ -35,7 +35,7 @@ namespace Web.Controllers
             response.EnsureSuccessStatusCode();
             // Turn the response body into a string
             var data = await response.Content.ReadAsStringAsync();
-            // Treat the response body string as JSON, and deserialize it into a list of gifts
+            // Treat the response body string as JSON, and deserialize it into a list of flights
             return View(JsonConvert.DeserializeObject<List<Flight>>(data));
         }
 
